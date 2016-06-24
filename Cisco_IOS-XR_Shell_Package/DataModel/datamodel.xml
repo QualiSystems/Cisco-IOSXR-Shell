@@ -222,7 +222,7 @@
       <AttachedAttributes />
       <AttributeValues />
       <Models>
-        <ResourceModel Name="Cisco IOS Switch" Description="" SupportsConcurrentCommands="true">
+        <ResourceModel Name="Cisco IOS XR Router" Description="" SupportsConcurrentCommands="true">
 		<AttachedAttributes>
         <AttachedAttribute Name="User" IsOverridable="true" IsLocal="true">
           <AllowedValues />
@@ -317,7 +317,7 @@
           </AttributeValues>
           <ParentModels />
           <Drivers>
-		<DriverName>Generic Cisco IOS Driver 2</DriverName>
+		<DriverName>Generic Cisco IOS-XR Driver 2</DriverName>
 	  </Drivers> 
           <Scripts />
         </ResourceModel>
@@ -328,7 +328,7 @@
       <AttachedAttributes />
       <AttributeValues />
       <Models>
-        <ResourceModel Name="Cisco IOS-XR Router" Description="" SupportsConcurrentCommands="true">
+        <ResourceModel Name="Cisco IOS XR Router" Description="" SupportsConcurrentCommands="true">
           <AttachedAttributes>
         <AttachedAttribute Name="User" IsOverridable="true" IsLocal="true">
           <AllowedValues />
@@ -423,7 +423,7 @@
       </AttributeValues>
           <ParentModels />
           <Drivers>
-            <DriverName>Generic Cisco IOS Driver 2</DriverName>
+            <DriverName>Generic Cisco IOS-XR Driver 2</DriverName>
           </Drivers> 
           <Scripts />
         </ResourceModel>
@@ -448,7 +448,7 @@
           <AttributeValue Name="Serial Number" Value="" />
         </AttributeValues>
 			<ParentModels>
-				<ParentModelName>Cisco IOS-XR Router</ParentModelName>
+				<ParentModelName>Cisco IOS XR Router</ParentModelName>
 			</ParentModels>
 			<Drivers />
 			<Scripts />
@@ -644,7 +644,7 @@
 			<AttributeValue Name="Protocol Type" Value="Transparent" />
         </AttributeValues>
           <ParentModels>
-            <ParentModelName>Cisco IOS-XR Router</ParentModelName>
+            <ParentModelName>Cisco IOS XR Router</ParentModelName>
           </ParentModels>
           <Drivers />
           <Scripts />
