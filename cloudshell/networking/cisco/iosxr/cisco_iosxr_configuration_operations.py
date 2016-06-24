@@ -43,10 +43,10 @@ class CiscoIOSXRConfigurationOperations(CiscoConfigurationOperations):
 
         match_data = re.search('running-config', source_filename)
         if not match_data:
-            raise Exception('Cisco OS-XR', "Configuration type is empty or wrong - should be running-config ")
+            raise Exception('Cisco IOS XR', "Configuration type is empty or wrong - should be running-config ")
 
         if destination_host == '':
-            raise Exception('Cisco OS', "Destination host is empty")
+            raise Exception('Cisco IOS XR', "Destination host is empty")
 
         system_name = re.sub('\s+', '_', get_resource_name())
         if len(system_name) > 23:
@@ -59,7 +59,7 @@ class CiscoIOSXRConfigurationOperations(CiscoConfigurationOperations):
         if len(destination_host) <= 0:
             destination_host = self._get_resource_attribute(self.resource_name, 'Backup Location')
             if len(destination_host) <= 0:
-                raise Exception('Folder path and Backup Location is empty')
+                raise Exception('Folder path and Backup Location are empty')
         if destination_host.endswith('/'):
             destination_file = destination_host + destination_filename
         else:
@@ -85,7 +85,7 @@ class CiscoIOSXRConfigurationOperations(CiscoConfigurationOperations):
     	"""
 
         if not re.search('append|override', restore_method.lower()):
-            raise Exception('Cisco OS', "Restore method is wrong! Should be Append or Override")
+            raise Exception('Cisco IOS XR', "Restore method is wrong! Should be Append or Override")
 
         #config_type = 'running-config'
         if '-config' not in config_type:
@@ -95,12 +95,12 @@ class CiscoIOSXRConfigurationOperations(CiscoConfigurationOperations):
 
         match_data = re.search('running-config', config_type)
         if not match_data:
-            raise Exception('Cisco OS-XR', "Configuration type is empty or wrong - should be running-config ")
+            raise Exception('Cisco IOS XR', "Configuration type is empty or wrong - should be running-config ")
 
         destination_filename = match_data.group()
 
         if source_file == '':
-            raise Exception('Cisco OS-XR', "Path is empty")
+            raise Exception('Cisco IOS XR', "Path is empty")
 
         # source_file = source_file.replace('127.0.0.1/', 'localhost/')
 
@@ -114,22 +114,22 @@ class CiscoIOSXRConfigurationOperations(CiscoConfigurationOperations):
             is_uploaded = self.copy(source_file=source_file, destination_file=destination_filename, vrf=vrf)
 
         if is_uploaded[0] is False:
-            raise Exception('Cisco OS-XR', is_uploaded[1])
+            raise Exception('Cisco IOS XR', is_uploaded[1])
 
         is_downloaded = (True, '')
         if is_downloaded[0] is True:
             return 'Finished restore configuration!'
         else:
-            raise Exception('Cisco OS-XR', is_downloaded[1])
+            raise Exception('Cisco IOS XR', is_downloaded[1])
 
 
     def load(self, source_file='', vrf=None, timeout=600, retries=5):
         """load configurationon running mode on device from provided configuration file
-		:param source_file: relative path to the file on the remote host tftp://server/sourcefile
+	    :param source_file: relative path to the file on the remote host tftp://server/sourcefile
 		"""
 
         if not source_file:
-            raise Exception('Cisco IOS-XR', "No source filename provided for load method!")
+            raise Exception('Cisco IOS XR', "No source filename provided for load method!")
 
         expected_map = OrderedDict()
 
@@ -154,7 +154,7 @@ class CiscoIOSXRConfigurationOperations(CiscoConfigurationOperations):
         # to exit the configuration mode
         self.cli.send_command(command='')
 
-        match_error = re.search(r" *.Can't assign requested address|[Ee]rror:", output)
+        match_error = re.search(r" Can't assign requested address|[Ee]rror:", output)
 
         error_match_commit = re.search(r'(ERROR|[Ee]rror).*', outcommit)
 
@@ -162,7 +162,7 @@ class CiscoIOSXRConfigurationOperations(CiscoConfigurationOperations):
         if match_error is not None or error_match_commit is not None:
             error_str = output[match_error.end() + 1:]
             error_str = error_str[:error_str.find('\n')]
-            raise Exception('Cisco IOS-XR', 'load error: ' + error_str)
+            raise Exception('Cisco IOS XR', 'load error: ' + error_str)
 
     def _check_download_from_tftp(self, output):
         """Verify if file was successfully uploaded

@@ -19,6 +19,6 @@ setup(
 	install_requires=required,
     tests_require=required_for_tests,
     version=version_from_file,
-    description='QualiSystems networking cisco IOS specific Package',
+    description='QualiSystems networking cisco IOS-XR specific Package',
     include_package_data = True
 )
