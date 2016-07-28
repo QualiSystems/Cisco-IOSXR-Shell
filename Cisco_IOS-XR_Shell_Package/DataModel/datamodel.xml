@@ -222,7 +222,7 @@
       <AttachedAttributes />
       <AttributeValues />
       <Models>
-        <ResourceModel Name="Cisco IOS XR Router" Description="" SupportsConcurrentCommands="true">
+        <ResourceModel Name="Cisco IOS XR Switch" Description="" SupportsConcurrentCommands="true">
 		<AttachedAttributes>
         <AttachedAttribute Name="User" IsOverridable="true" IsLocal="true">
           <AllowedValues />
@@ -448,6 +448,7 @@
           <AttributeValue Name="Serial Number" Value="" />
         </AttributeValues>
 			<ParentModels>
+				<ParentModelName>Cisco IOS XR Switch</ParentModelName>
 				<ParentModelName>Cisco IOS XR Router</ParentModelName>
 			</ParentModels>
 			<Drivers />
@@ -644,8 +645,10 @@
 			<AttributeValue Name="Protocol Type" Value="Transparent" />
         </AttributeValues>
           <ParentModels>
+            <ParentModelName>Cisco IOS XR Switch</ParentModelName>
             <ParentModelName>Cisco IOS XR Router</ParentModelName>
           </ParentModels>
+
           <Drivers />
           <Scripts />
         </ResourceModel>
