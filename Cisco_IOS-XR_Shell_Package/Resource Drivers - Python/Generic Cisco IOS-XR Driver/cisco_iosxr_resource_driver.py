@@ -52,7 +52,7 @@ class CiscoIOSXRResourceDriver(ResourceDriverInterface, NetworkingResourceDriver
         """
         configuration_operations = CiscoIOSXRConfigurationOperations()
         response = configuration_operations.restore_configuration(source_file=path, restore_method=restore_method,
-                                                              config_type=config_type, vrf=vrf)
+                                                                  config_type=config_type, vrf=vrf)
         configuration_operations.logger.info('Restore completed')
         configuration_operations.logger.info(response)
 
