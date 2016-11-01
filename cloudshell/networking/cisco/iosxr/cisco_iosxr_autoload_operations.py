@@ -1,3 +1,4 @@
+from cloudshell.networking.autoload.networking_autoload_resource_structure import Port
 from cloudshell.networking.cisco.autoload.cisco_generic_snmp_autoload import CiscoGenericSNMPAutoload
 
 
