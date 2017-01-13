@@ -1,8 +1,8 @@
 from cloudshell.networking.devices.driver_helper import get_cli, get_logger_with_thread_id, get_api
-from cloudshell.networking.cisco.nxos.runners.cisco_nxos_autoload_runner import \
-    CiscoNXOSAutoloadRunner as AutoloadRunner
-from cloudshell.networking.cisco.nxos.runners.cisco_nxos_configuration_runner import \
-    CiscoNXOSConfigurationRunner as ConfigurationRunner
+from cloudshell.networking.cisco.iosxr.runners.cisco_ios_xr_autoload_runner import \
+    CiscoIOSXRAutoloadRunner as AutoloadRunner
+from cloudshell.networking.cisco.iosxr.runners.cisco_ios_xr_configuration_runner import \
+    CiscoIOSXRConfigurationRunner as ConfigurationRunner
 from cloudshell.networking.cisco.runners.cisco_connectivity_runner import \
     CiscoConnectivityRunner as ConnectivityRunner
 from cloudshell.networking.cisco.runners.cisco_firmware_runner import CiscoFirmwareRunner as FirmwareRunner
@@ -16,7 +16,7 @@ from cloudshell.shell.core.driver_utils import GlobalLock
 
 
 class CiscoIOSXRResourceDriver(ResourceDriverInterface, NetworkingResourceDriverInterface, GlobalLock):
-    SUPPORTED_OS = ["NX[ -]?OS|NXOS"]
+    SUPPORTED_OS = ["IOS[ -]?XR|IOSXR"]
 
     def __init__(self):
         super(CiscoIOSXRResourceDriver, self).__init__()
