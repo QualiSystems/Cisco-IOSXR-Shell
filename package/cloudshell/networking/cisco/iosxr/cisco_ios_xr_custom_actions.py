@@ -12,24 +12,26 @@ def load(config_session, logger, source_file, action_map=None, vrf=None):
 
 
 def replace_config(config_session, logger):
-    commit_command = COMMIT_REPlACE.get_command("")
+    commit_command = COMMIT_REPlACE.get_command()
     return config_session.send_command(**commit_command)
 
 
 def validate_replace_config_success(output):
     error_match_commit = re.search(r'(ERROR|[Ee]rror).*\n', output)
 
-    if not error_match_commit:
+    if error_match_commit:
         error_str = error_match_commit.group()
         raise Exception('validate_replace_config_success', 'load error: ' + error_str)
 
 
 def validate_load_success(output):
-    match_success = re.search(r"[\[\(][1-9][0_9]*[\)\]].*bytes", re.IGNORECASE, re.MULTILINE)
+    match_success = re.search(r"[\[\(][1-9][0-9]*[\)\]].*bytes", output, re.IGNORECASE | re.MULTILINE)
     if not match_success:
-        match_error = re.search(r" Can't assign requested address|[Ee]rror:.*\n|%.*\n",
-                                output, re.IGNORECASE)
+        error_str = "Failed to restore configuration, please check logs"
+        match_error = re.search(r" Can't assign requested address|[Ee]rror:.*\n|%.*$",
+                                output, re.IGNORECASE | re.MULTILINE)
 
-        if not match_error:
-            error_str = match_error.group()
-            raise Exception('validate_load_success', 'load error: ' + error_str)
+        if match_error:
+            error_str = 'load error: ' + match_error.group()
+
+        raise Exception('validate_load_success', error_str)
