@@ -1,6 +1,6 @@
 from cloudshell.networking.cisco.autoload.cisco_generic_snmp_autoload import CiscoGenericSNMPAutoload
-from cloudshell.networking.cisco.nxos.autoload.autoload_structure import GenericPort, GenericPortChannel, \
-    CiscoNXOSSwitch, GenericChassis, GenericModule, GenericPowerPort
+from cloudshell.networking.cisco.iosxr.autoload.autoload_structure import GenericPort, GenericPortChannel, \
+    CiscoIOSXRRouter, GenericChassis, GenericModule, GenericPowerPort
 
 
 class CiscoIOSXRAutoload(CiscoGenericSNMPAutoload):
@@ -9,7 +9,7 @@ class CiscoIOSXRAutoload(CiscoGenericSNMPAutoload):
         self.port = GenericPort
         self.power_port = GenericPowerPort
         self.port_channel = GenericPortChannel
-        self.root_model = CiscoNXOSSwitch
+        self.root_model = CiscoIOSXRRouter
         self.chassis = GenericChassis
         self.module = GenericModule
 
