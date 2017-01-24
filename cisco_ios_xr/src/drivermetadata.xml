@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Driver Name="Generic Cisco NXOS Driver Version3" Version="4.0.0" MainClass="driver.CiscoNXOSResourceDriver" Description="Generic driver for all NXOS devices">
+<Driver Name="Generic Cisco IOS-XR Driver Version2" Version="2.0.0" MainClass="driver.CiscoIOSXRResourceDriver" Description="Generic driver for all IOS-XR devices">
     <Layout>
         <Category Name="Hidden Commands">
             <Command Name="shutdown" DisplayName="Shutdown" Description="">
