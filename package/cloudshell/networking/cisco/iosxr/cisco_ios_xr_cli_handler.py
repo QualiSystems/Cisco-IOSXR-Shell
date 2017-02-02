@@ -25,6 +25,7 @@ class CiscoIOSXRCliHandler(CliHandlerImpl):
         session.hardware_expect('terminal width 300', EnableCommandMode.PROMPT, logger)
         self._enter_config_mode(session, logger)
         session.hardware_expect('no logging console', ConfigCommandMode.PROMPT, logger)
+        session.hardware_expect('commit', EnableCommandMode.PROMPT, logger)
         session.hardware_expect('end', EnableCommandMode.PROMPT, logger)
 
     def _enter_config_mode(self, session, logger):
