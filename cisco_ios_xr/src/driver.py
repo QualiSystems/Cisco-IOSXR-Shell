@@ -1,15 +1,23 @@
 from cloudshell.networking.devices.driver_helper import get_cli, get_logger_with_thread_id, get_api
+
 from cloudshell.networking.cisco.iosxr.runners.cisco_ios_xr_autoload_runner import \
     CiscoIOSXRAutoloadRunner as AutoloadRunner
+
 from cloudshell.networking.cisco.iosxr.runners.cisco_ios_xr_configuration_runner import \
     CiscoIOSXRConfigurationRunner as ConfigurationRunner
+
 from cloudshell.networking.cisco.iosxr.runners.cisco_ios_xr_connectivity_runner import \
     CiscoIOSXRConnectivityRunner as ConnectivityRunner
+
 from cloudshell.networking.cisco.iosxr.runners.cisco_ios_xr_firmware_runner import \
     CiscoIOSXRFirmwareRunner as FirmwareRunner
+
 from cloudshell.networking.cisco.iosxr.runners.cisco_ios_xr_run_command_runner import \
     CiscoIOSXRRunCommandRunner as CommandRunner
-from cloudshell.networking.cisco.iosxr.runners.cisco_ios_xr_state_runner import CiscoIOSXRStateRunner as StateRunner
+
+from cloudshell.networking.cisco.iosxr.runners.cisco_ios_xr_state_runner import \
+    CiscoIOSXRStateRunner as StateRunner
+
 from cloudshell.shell.core.context_utils import get_attribute_by_name
 from cloudshell.shell.core.context import ResourceCommandContext
 from cloudshell.networking.networking_resource_driver_interface import NetworkingResourceDriverInterface
