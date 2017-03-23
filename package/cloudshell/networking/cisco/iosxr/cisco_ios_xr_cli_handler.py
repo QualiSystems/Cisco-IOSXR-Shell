@@ -16,7 +16,10 @@ from cloudshell.shell.core.context_utils import get_attribute_by_name
 class CiscoIOSXRCliHandler(CliHandlerImpl):
     def __init__(self, cli, context, logger, api):
         super(CiscoIOSXRCliHandler, self).__init__(cli, context, logger, api)
-        modes = CommandModeHelper.create_command_mode(context)
+        self._initialize()
+
+    def _initialize(self):
+        modes = CommandModeHelper.create_command_mode(self._context)
         self.default_mode = modes[DefaultCommandMode]
         self.enable_mode = modes[EnableCommandMode]
         self.config_mode = modes[ConfigCommandMode]
