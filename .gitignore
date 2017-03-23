@@ -1,2 +1,1 @@
-*.pyc
-cloudshell/networking/cisco/ios/test_ios.py
+cisco_ios_xr/src/test_ios_xr.py
