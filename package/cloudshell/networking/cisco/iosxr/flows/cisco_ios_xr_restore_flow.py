@@ -32,19 +32,7 @@ class CiscoIOSXRRestoreFlow(CiscoRestoreFlow):
         with self._cli_handler.get_cli_service(self._cli_handler.enable_mode) as enable_session:
             copy_action_map = self._prepare_action_map(path, configuration_type)
             if "startup" in configuration_type:
-                if restore_method == "override":
-                    del_action_map = OrderedDict({
-                        "[Dd]elete [Ff]ilename ": lambda session, logger: session.send_line(configuration_type,
-                                                                                            logger)})
-                    delete_file(session=enable_session, logger=self._logger,
-                                path=self.STARTUP_LOCATION, action_map=del_action_map)
-                    copy(session=enable_session, logger=self._logger, source=path,
-                         destination=configuration_type, vrf=vrf_management_name,
-                         action_map=copy_action_map)
-                else:
-                    copy(session=enable_session, logger=self._logger, source=path,
-                         destination=configuration_type, vrf=vrf_management_name,
-                         action_map=copy_action_map)
+                raise Exception(self.__class__.__name__, "Startup configuration is not supported by IOS-XR")
 
             elif "running" in configuration_type:
                 if restore_method == "override":

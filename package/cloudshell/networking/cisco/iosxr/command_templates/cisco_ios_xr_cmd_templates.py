@@ -7,7 +7,7 @@ LOAD = CommandTemplate(command="load {source_file} [vrf {vrf}]", action_map=Orde
     '[\[\(][Yy]es/[Nn]o[\)\]]|\[confirm\]': lambda session: session.send_line('yes'),
     '\(y\/n\)': lambda session: session.send_line('y'),
     '[\[\(][Yy]/[Nn][\)\]]': lambda session: session.send_line('y'),
-    'overwritte': lambda session: session.send_line('yes'),
+    'overwrit+e': lambda session: session.send_line('yes'),
     'Do you wish to proceed': lambda session: session.send_line('yes')
 }))
 

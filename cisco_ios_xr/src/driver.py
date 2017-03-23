@@ -107,6 +107,8 @@ class CiscoIOSXRResourceDriver(ResourceDriverInterface, NetworkingResourceDriver
 
         if not configuration_type:
             configuration_type = 'running'
+        if 'startup' in configuration_type.lower():
+            raise Exception(self.__class__.__name__, "Startup configuration is not supported by IOS-XR")
 
         if not vrf_management_name:
             vrf_management_name = get_attribute_by_name(context=context, attribute_name='VRF Management Name')
