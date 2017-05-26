@@ -1,7 +1,7 @@
 from unittest import TestCase
 
 from mock import MagicMock
-from cloudshell.networking.cisco.iosxr.flows.cisco_ios_xr_restore_flow import CiscoIOSXRRestoreFlow
+from cloudshell.networking.cisco.iosxr.flows.cisco_iosxr_restore_flow import CiscoIOSXRRestoreFlow
 
 
 class TestCiscorestoreConfigurationFlow(TestCase):

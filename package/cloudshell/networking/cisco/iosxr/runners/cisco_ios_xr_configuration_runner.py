@@ -1,6 +1,6 @@
 from cloudshell.networking.cisco.flow.cisco_save_flow import CiscoSaveFlow
 from cloudshell.networking.cisco.iosxr.cisco_ios_xr_cli_handler import CiscoIOSXRCliHandler
-from cloudshell.networking.cisco.iosxr.flows.cisco_ios_xr_restore_flow import CiscoIOSXRRestoreFlow
+from cloudshell.networking.cisco.iosxr.flows.cisco_iosxr_restore_flow import CiscoIOSXRRestoreFlow
 from cloudshell.networking.devices.runners.configuration_runner import ConfigurationRunner
 
 

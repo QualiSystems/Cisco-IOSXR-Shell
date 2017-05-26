@@ -1,17 +1,25 @@
 language: python
 python:
-    - '2.7'
-
-before_install:
-    - pip install coveralls
-    - pip install -r requirements.txt
-    - pip install -r test_requirements.txt
+- '2.7'
 
 install:
-    - python setup.py install
+    - pip install coveralls
+    - 'if [ ${TRAVIS_BRANCH} = "master" ]; then
+	    pushd package;
+    	    python setup.py install;
+	    popd;
+        else
+            pip install -r package/dev_requirements.txt;
+	    pushd package;
+    	    python setup.py develop --no-deps;
+	    popd;
+        fi'
+    - pip install -r cisco_ios_xr/src/requirements.txt
+    - pip install -r package/test_requirements.txt
+    - pip install -r cisco_ios_xr/test_requirements.txt
 
 script:
-    - nosetests
+    - nosetests --with-coverage --cover-package=src,cloudshell.networking.cisco.iosxr package/tests cisco_ios_xr/tests
 
 after_success:
     - coveralls
