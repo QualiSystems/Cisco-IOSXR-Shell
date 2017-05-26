@@ -208,7 +208,7 @@ class TestCiscoIOSXRShellDriver(unittest.TestCase):
     @patch('src.driver.get_attribute_by_name')
     def test_save_no_vrf_no_folder_path(self, mocked_get_attr, mocked_class, mocked_context, mocked_logger, mocked_api):
         # Arrange
-        configuration_type = 'startup'
+        configuration_type = 'running'
 
         vrf = 'default'
         mocked_class.return_value.save.return_value = ''
