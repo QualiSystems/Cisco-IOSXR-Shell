@@ -135,7 +135,7 @@
             </AttributeValues>
             <ParentModels />
             <Drivers>
-                <DriverName>Generic Cisco IOS-XR Driver Version2</DriverName>
+                <DriverName>Generic Cisco IOS-XR Driver Version3</DriverName>
             </Drivers>
             <Scripts />
         </ResourceModel>

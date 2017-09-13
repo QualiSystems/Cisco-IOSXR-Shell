@@ -1,8 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-from collections import OrderedDict
-from cloudshell.networking.cisco.cisco_command_actions import delete_file, copy
+from cloudshell.networking.cisco.cisco_command_actions import copy
 from cloudshell.networking.cisco.flow.cisco_restore_flow import CiscoRestoreFlow
 from cloudshell.networking.cisco.iosxr.cisco_ios_xr_custom_actions import load, replace_config, \
     validate_replace_config_success, validate_load_success

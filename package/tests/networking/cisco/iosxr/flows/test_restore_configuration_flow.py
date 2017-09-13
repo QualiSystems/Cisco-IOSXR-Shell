@@ -1,3 +1,4 @@
+import re
 from unittest import TestCase
 
 from mock import MagicMock
@@ -72,15 +73,19 @@ class TestCiscorestoreConfigurationFlow(TestCase):
         self.config_session.send_command.assert_called()
 
     def test_restore_configuration_append(self):
+        #TODO correct me!
         restore_flow = self._get_handler("""C6504e-1-CE7#copy running-config tftp:
         Address or name of remote host []? 10.10.10.10
         Destination filename [c6504e-1-ce7-confg]? 6504e1
         !!
         23518 bytes copied in 0.904 secs (26015 bytes/sec)
         C6504e-1-CE7#""")
-
-        restore_flow.execute_flow('tftp://127.0.0.1',
-                                  configuration_type='startup',
-                                  restore_method="append",
-                                  vrf_management_name='management')
-        self.session.send_command.assert_called_once()
+        ex_message = ""
+        try:
+            restore_flow.execute_flow('tftp://127.0.0.1',
+                                      configuration_type='startup',
+                                      restore_method="append",
+                                      vrf_management_name='management')
+        except Exception as e:
+            ex_message = e.args[-1]
+        self.assertTrue(re.search(r"Startup configuration is not supported by IOS-XR", ex_message))
