@@ -12,15 +12,16 @@ from cloudshell.devices.driver_helper import get_logger_with_thread_id, get_api,
 from cloudshell.shell.core.context import ResourceCommandContext
 from cloudshell.networking.networking_resource_driver_interface import NetworkingResourceDriverInterface
 from cloudshell.shell.core.resource_driver_interface import ResourceDriverInterface
+from cloudshell.shell.core.context import ResourceCommandContext
 from cloudshell.shell.core.driver_utils import GlobalLock
 
 
-class CiscoIOSResourceDriver(ResourceDriverInterface, NetworkingResourceDriverInterface, GlobalLock):
+class CiscoIOSXRResourceDriver(ResourceDriverInterface, NetworkingResourceDriverInterface, GlobalLock):
     SUPPORTED_OS = ["CAT[ -]?OS", "IOS[ -]?X?[E]?"]
     SHELL_NAME = ""
 
     def __init__(self):
-        super(CiscoIOSResourceDriver, self).__init__()
+        super(CiscoIOSXRResourceDriver, self).__init__()
         self._cli = None
 
     def initialize(self, context):
