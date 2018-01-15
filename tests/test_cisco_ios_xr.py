@@ -8,7 +8,6 @@ Tests for `CiscoNXOSShellDriver`
 import unittest
 from mock import patch, MagicMock
 
-from cloudshell.shell.core.context import ResourceCommandContext, ResourceContextDetails, ReservationContextDetails
 from src.driver import CiscoIOSXRResourceDriver
 
 
